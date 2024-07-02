@@ -61,3 +61,6 @@ done
 
 %clean
 rm -rf %{buildroot}
+
+%changelog
+%autochangelog

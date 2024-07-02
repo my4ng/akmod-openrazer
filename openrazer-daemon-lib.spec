@@ -41,3 +41,6 @@ rm -rf %{buildroot}
 %files -n python3-openrazer-daemon-lib
 %{python3_sitelib}/openrazer/
 %{python3_sitelib}/openrazer-*.egg-info/
+
+%changelog
+%autochangelog

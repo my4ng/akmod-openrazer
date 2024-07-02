@@ -64,3 +64,6 @@ rm -rf %{buildroot}
 %{_bindir}/openrazer-daemon
 %{_datadir}/dbus-1/services/org.razer.service
 %{_userunitdir}/openrazer-daemon.service
+
+%changelog
+%autochangelog

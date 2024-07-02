@@ -38,3 +38,6 @@ getent group plugdev >/dev/null || groupadd -r plugdev
 %files
 %{_udevrulesdir}/../razer_mount
 %{_udevrulesdir}/99-razer.rules
+
+%changelog
+%autochangelog
