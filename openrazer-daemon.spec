@@ -1,6 +1,6 @@
 %global debug_package %{nil}
 
-Name:           python-openrazer-daemon
+Name:           openrazer-daemon
 Version:        OPENRAZER_VERSION
 Release:        RELEASE_VERSION%{?dist}
 Summary:        Openrazer daemon
@@ -17,15 +17,8 @@ BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 BuildRequires:  systemd-rpm-macros
 
-%global _description %{expand:
-Openrazer daemon that adds persistence support and more.}
-
-%description %_description
-
-%package -n python3-openrazer-daemon
-Summary:       %{summary}
-
-%description -n python3-openrazer-daemon %_description
+%description
+Openrazer daemon that adds persistence support and more.
 
 %prep
 %setup -n openrazer-daemon
@@ -51,9 +44,9 @@ rm -rf %{buildroot}
 %systemd_user_preun openrazer-daemon.service
 
 %postun
-%systemd_user_postun_with_reload openrazer-daemon.service
+%systemd_user_postun_with_restart openrazer-daemon.service
 
-%files -n python3-openrazer-daemon
+%files
 %{python3_sitelib}/openrazer_daemon/
 %{python3_sitelib}/openrazer_daemon-*.egg-info/
 

@@ -35,10 +35,10 @@ tmp/openrazer-daemon/resources/openrazer-daemon.systemd.service.in \
 && mv tmp/openrazer-daemon/resources/openrazer-daemon.systemd.service.in tmp/openrazer-daemon/resources/openrazer-daemon.service \
 && tar -czvf rpmbuild/SOURCES/openrazer-daemon.tar.gz -C tmp openrazer-daemon
 
-RUN mkdir tmp/openrazer-daemon-lib \
-&& cp -r src/pylib/* tmp/openrazer-daemon-lib \
-&& rm -r tmp/openrazer-daemon-lib/tests \
-&& tar -czvf rpmbuild/SOURCES/openrazer-daemon-lib.tar.gz -C tmp openrazer-daemon-lib
+RUN mkdir tmp/python-openrazer-daemon \
+&& cp -r src/pylib/* tmp/python-openrazer-daemon \
+&& rm -r tmp/python-openrazer-daemon/tests \
+&& tar -czvf rpmbuild/SOURCES/python-openrazer-daemon.tar.gz -C tmp python-openrazer-daemon
 
 RUN dnf update -y
 
@@ -49,7 +49,7 @@ RUN sed -i "s/RELEASE_VERSION/${RELEASE_VERSION}/" rpmbuild/SPECS/*
 RUN rpmbuild -ba --define "_topdir ${PWD}/rpmbuild" rpmbuild/SPECS/openrazer-kmod.spec
 RUN rpmbuild -ba --define "_topdir ${PWD}/rpmbuild" rpmbuild/SPECS/openrazer.spec
 RUN rpmbuild -ba --define "_topdir ${PWD}/rpmbuild" rpmbuild/SPECS/openrazer-daemon.spec
-RUN rpmbuild -ba --define "_topdir ${PWD}/rpmbuild" rpmbuild/SPECS/openrazer-daemon-lib.spec
+RUN rpmbuild -ba --define "_topdir ${PWD}/rpmbuild" rpmbuild/SPECS/python-openrazer-daemon.spec
 
 WORKDIR /output
 

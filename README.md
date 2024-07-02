@@ -17,8 +17,8 @@ This project builds [openrazer](https://github.com/openrazer/openrazer) akmod an
    - `akmod-openrazer-<version>.rpm`
    - `kmod-openrazer-<version>.rpm`
    - `openrazer-<version>.rpm`
+   - `openrazer-daemon-<version>.rpm`
    - `python3-openrazer-daemon-<version>.rpm`
-   - `python3-openrazer-daemon-lib-<version>.rpm`
 4. Install the packages as appropriate to your distribution, e.g.
    - Fedora: `dnf install *`
 
