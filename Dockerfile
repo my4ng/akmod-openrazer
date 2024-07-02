@@ -11,7 +11,7 @@ WORKDIR /openrazer
 
 RUN mkdir -p rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS} src tmp
 
-ARG RELEASE_VERSION
+ARG RELEASE_VERSION=1
 
 ADD "https://api.github.com/repos/openrazer/openrazer/releases/latest" latest-release
 
