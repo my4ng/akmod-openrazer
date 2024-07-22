@@ -11,15 +11,19 @@ This project builds [openrazer](https://github.com/openrazer/openrazer) akmod an
 
 1. Clone this repository
    `git clone --depth 1 https://github.com/my4ng/akmod-openrazer.git && cd akmod-openrazer`
-2. Run Podman/Docker with `Dockerfile`
-   - `<podman/docker> build --output type=local,dest=build -f Dockerfile .`
-3. Find the built packages with `cd build/output`; there should be five packages:
+2. Create an output directory
+   `mkdir out`
+3. Build Podman/Docker container image
+   `<podman/docker> build -t openrazer -f Dockerfile .`
+4. Run the container
+   `<podman/docker> run -t -v ./out:/openrazer/out:Z --rm openrazer`
+5. Find the built packages with `cd out`; there should be five packages:
    - `akmod-openrazer-<version>.rpm`
    - `kmod-openrazer-<version>.rpm`
    - `openrazer-<version>.rpm`
    - `openrazer-daemon-<version>.rpm`
    - `python3-openrazer-daemon-<version>.rpm`
-4. Install the packages as appropriate to your distribution, e.g.
+6. Install the packages as appropriate to your distribution, e.g.
    - Fedora: `dnf install *`
 
 ## Licenses
