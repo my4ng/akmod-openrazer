@@ -36,5 +36,5 @@ rpmbuild -ba --define "_topdir ${PWD}/rpmbuild" rpmbuild/SPECS/openrazer.spec
 rpmbuild -ba --define "_topdir ${PWD}/rpmbuild" rpmbuild/SPECS/openrazer-daemon.spec
 rpmbuild -ba --define "_topdir ${PWD}/rpmbuild" rpmbuild/SPECS/python-openrazer-daemon.spec
 
-rm -vf out/*
-cp -v rpmbuild/RPMS/**/* out/
+rm -vf out/*.rpm
+cp -v rpmbuild/RPMS/**/*.rpm out/
