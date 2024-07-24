@@ -6,24 +6,35 @@ This project builds [openrazer](https://github.com/openrazer/openrazer) akmod an
 
 - Git
 - Podman (recommended) / Docker
+- Just (optional, recommended)
 
-## Build packages
+## Installation
 
-1. Clone this repository
-   `git clone --depth 1 https://github.com/my4ng/akmod-openrazer.git && cd akmod-openrazer`
-2. Create an output directory
+Clone this repository
+`git clone --depth 1 https://github.com/my4ng/akmod-openrazer.git && cd akmod-openrazer`
+
+### Just
+
+- Choose between Podman/Docker build
+`just podman` / `just docker`
+- Install on fedora (with superuser privileges)
+`just install-fedora`
+
+### Manual
+
+1. Create an output directory
    `mkdir out`
-3. Build Podman/Docker container image
+2. Build Podman/Docker container image
    `<podman/docker> build -t openrazer -f Dockerfile .`
-4. Run the container
+3. Run the container
    `<podman/docker> run -t -v ./out:/openrazer/out:Z --rm openrazer`
-5. Find the built packages with `cd out`; there should be five packages:
+4. Find the built packages with `cd out`; there should be five packages:
    - `akmod-openrazer-<version>.rpm`
    - `kmod-openrazer-<version>.rpm`
    - `openrazer-<version>.rpm`
    - `openrazer-daemon-<version>.rpm`
    - `python3-openrazer-daemon-<version>.rpm`
-6. Install the packages as appropriate to your distribution, e.g.
+5. Install the packages as appropriate to your distribution, e.g.
    - Fedora: `dnf install *`
 
 ## Licenses
