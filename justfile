@@ -10,4 +10,4 @@ docker: out
     docker run -t -v ./out:/openrazer/out:Z --rm openrazer
 
 install-fedora: out
-   dnf install out/*.rpm
+    sudo dnf install out/*.rpm

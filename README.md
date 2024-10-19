@@ -2,6 +2,8 @@
 
 This project builds [openrazer](https://github.com/openrazer/openrazer) akmod and other RPM packages using podman/docker, instead of the provided dkms solution.
 
+**Verified to work for version 3.9.0**
+
 ## Prerequisites
 
 - Git
@@ -35,7 +37,7 @@ Clone this repository
    - `openrazer-daemon-<version>.rpm`
    - `python3-openrazer-daemon-<version>.rpm`
 5. Install the packages as appropriate to your distribution, e.g.
-   - Fedora: `dnf install *`
+   - Fedora: `sudo dnf install *`
 
 ## Licenses
 
