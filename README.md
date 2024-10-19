@@ -35,7 +35,7 @@ Clone this repository
    - `kmod-openrazer-<version>.rpm`
    - `openrazer-<version>.rpm`
    - `openrazer-daemon-<version>.rpm`
-   - `python3-openrazer-daemon-<version>.rpm`
+   - `python3-openrazer-<version>.rpm`
 5. Install the packages as appropriate to your distribution, e.g.
    - Fedora: `sudo dnf install *`
 
