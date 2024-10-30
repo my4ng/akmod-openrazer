@@ -11,3 +11,4 @@ docker: out
 
 install-fedora: out
     sudo dnf install out/*.rpm
+    systemctl --user enable --now openrazer-daemon.service

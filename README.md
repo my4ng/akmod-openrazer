@@ -38,6 +38,8 @@ Clone this repository
    - `python3-openrazer-<version>.rpm`
 5. Install the packages as appropriate to your distribution, e.g.
    - Fedora: `sudo dnf install *`
+6. Enable the openrazer daemon user service
+   `systemctl --user enable --now openrazer-daemon.service`
 
 ## Licenses
 

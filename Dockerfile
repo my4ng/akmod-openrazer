@@ -1,10 +1,10 @@
-FROM fedora:latest AS build
+FROM fedora:41 AS build
 
 RUN dnf update -y
-RUN dnf groupinstall -y "Development Tools"
+RUN dnf group install -y development-tools
 RUN dnf install -y rpmdevtools kmodtool
 RUN dnf install -y wget jq 
-RUN dnf install -y make python3-devel systemd-rpm-macros
+RUN dnf install -y make python3-devel python3-setuptools systemd-rpm-macros
 
 WORKDIR /openrazer
 RUN mkdir -p rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS} src tmp out
