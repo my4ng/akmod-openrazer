@@ -23,6 +23,16 @@ mv tmp/openrazer-daemon/resources/org.razer.service.in tmp/openrazer-daemon/reso
 mv tmp/openrazer-daemon/resources/openrazer-daemon.systemd.service.in tmp/openrazer-daemon/resources/openrazer-daemon.service
 tar -czvf rpmbuild/SOURCES/openrazer-daemon.tar.gz -C tmp openrazer-daemon
 
+mkdir tmp/openrazer-daemon-only
+cp -r src/daemon/* tmp/openrazer-daemon-only
+rm tmp/openrazer-daemon-only/Makefile
+rm -r tmp/openrazer-daemon-only/tests
+sed -i "s|##PREFIX##|/usr|" tmp/openrazer-daemon-only/resources/org.razer.service.in \
+    tmp/openrazer-daemon-only/resources/openrazer-daemon.systemd.service.in
+mv tmp/openrazer-daemon-only/resources/org.razer.service.in tmp/openrazer-daemon-only/resources/org.razer.service
+mv tmp/openrazer-daemon-only/resources/openrazer-daemon.systemd.service.in tmp/openrazer-daemon-only/resources/openrazer-daemon.service
+tar -czvf rpmbuild/SOURCES/openrazer-daemon-only.tar.gz -C tmp openrazer-daemon-only
+
 mkdir tmp/python-openrazer
 cp -r src/pylib/* tmp/python-openrazer
 rm -r tmp/python-openrazer/tests
@@ -34,6 +44,7 @@ sed -i "s/RELEASE_VERSION/${RELEASE_VERSION:-1}/" rpmbuild/SPECS/*
 rpmbuild -ba --define "_topdir ${PWD}/rpmbuild" rpmbuild/SPECS/openrazer-kmod.spec
 rpmbuild -ba --define "_topdir ${PWD}/rpmbuild" rpmbuild/SPECS/openrazer.spec
 rpmbuild -ba --define "_topdir ${PWD}/rpmbuild" rpmbuild/SPECS/openrazer-daemon.spec
+rpmbuild -ba --define "_topdir ${PWD}/rpmbuild" rpmbuild/SPECS/openrazer-daemon-only.spec
 rpmbuild -ba --define "_topdir ${PWD}/rpmbuild" rpmbuild/SPECS/python-openrazer.spec
 
 rm -vf out/*.rpm
