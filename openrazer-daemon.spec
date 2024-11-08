@@ -8,8 +8,8 @@ License:        GPL-2.0
 URL:            https://github.com/openrazer/openrazer
 Source0:        openrazer-daemon.tar.gz
 
-Requires:       openrazer-kmod >= %{version}
-Requires:       openrazer-kmod-common >= %{version}
+Recommends:       openrazer-kmod >= %{version}
+Recommends:       openrazer-kmod-common >= %{version}
 Provides:       openrazer-daemon = %{version}
 
 BuildArch:      noarch
